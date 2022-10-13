@@ -247,16 +247,16 @@ INSERT INTO passenger VALUES (787887, 'Jurgen', 'Achim', 'Bremen-Lesum');
 INSERT INTO passenger VALUES (787888, 'Isabella', 'Twistringen', 'Bremen-HBF');
 
 /*inserting data for regional regional_id- train_name - route_id,  price */
-INSERT INTO regional VALUES (333330,'RS1',3301,  8);
+INSERT INTO regional VALUES (333330,'RS1',3301, 8);
 INSERT INTO regional VALUES (333331,'RS2',3302, 5);
 INSERT INTO regional VALUES (333332,'RE1',3303, 10);
-INSERT INTO regional VALUES (333333,'RE8',3304, 10);
+INSERT INTO regional VALUES (333333,'RE8',3304, 13);
 INSERT INTO regional VALUES (333334,'RE4',3305, 9);
 
 /*inserting data for long distance long_id- train_name- price */
 INSERT INTO long_Dist VALUES (555550, 'ICE1139',9901, 30);
-INSERT INTO long_Dist VALUES (555551, 'IC2314',9902, 20);
-INSERT INTO long_Dist VALUES (555552, 'ICE1025',9903, 45);
+INSERT INTO long_Dist VALUES (555551, 'IC2314',9902, 25);
+INSERT INTO long_Dist VALUES (555552, 'ICE1025',9903, 20);
 INSERT INTO long_Dist VALUES (555553, 'IC1933',9904, 60);
 INSERT INTO long_Dist VALUES (555554, 'IC2409',9905, 70);
 
