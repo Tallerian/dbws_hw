@@ -155,7 +155,7 @@ INSERT INTO route_path VALUES (3304,'Bremen-Mandorf', 9);
 INSERT INTO route_path VALUES (3304,'Bremen-HBF', 10);
 INSERT INTO route_path VALUES (3304,'Osterholz-Scharmbeck', 11);
 INSERT INTO route_path VALUES (3304,'Bremenhaven-HBF', 12);
-INSERT INTO route_path VALUES (3304,'Bremenhaven-Lehe',13)
+INSERT INTO route_path VALUES (3304,'Bremenhaven-Lehe',13);
 
 /*RE4 from Hamburg Hbf to Bremen Hbf*/
 INSERT INTO route_path VALUES (3305,'Hamburg-HBF', 1);
