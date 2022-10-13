@@ -94,3 +94,8 @@ WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = "Bremen-Vegesac
 	  sequences >= (SELECT sequences FROM Route_path WHERE s_name = "Bremen-HBF")
       )
 ORDER BY sequences;
+
+/* JOIN QUERY 1: Returns a Table with the train_id, train_name, origin, destination and total stops */
+SELECT Route.train_id, Train.train_name, Train.origin, Train.destination, Route.Total_stops
+FROM Route
+INNER JOIN Train ON Route.train_id=Train.train_id;
