@@ -131,10 +131,10 @@ GROUP BY price;
 
 
 /* AGGREGATE FUNCTIONS */
-/* AGGREGATE FUNCTION 1: */
+/* AGGREGATE FUNCTION 1: Gives us the total number of Passengers */
 SELECT COUNT (p_id) AS "Number of Passengers" 
 FROM Passenger;
 
-/* AGGREGATE FUNCTION 2: */
+/* AGGREGATE FUNCTION 2: Gives us the lowest cost ICE train */
 SELECT MIN(PRICE) as "Min Price", long_id, train_name, route_id 
 FROM Long_dist; 
