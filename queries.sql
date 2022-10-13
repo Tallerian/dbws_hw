@@ -1,4 +1,5 @@
-/* Check to see if there are in the same Route Path*/ 
+/* QUERY 1 : Check to see if the stations are in the same route. 
+Returns a table with all the stations in the common route. */ 
 SELECT * FROM Route_path 
 WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = 'Bremen-Vegesack') 
 INTERSECT 
@@ -6,7 +7,7 @@ SELECT * FROM Route_path
 WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = 'Bremen-HBF')
 ORDER BY sequences;
 
-/* Only runs if the previous one gives you a NIL value */
+/* QUERY 2: Returns a list of all the stations for both trains assuming that there are on different routes */
 SELECT * FROM Route_path 
 WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = 'Bremen-Vegesack') 
 UNION 
@@ -14,17 +15,21 @@ SELECT * FROM Route_path
 WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = 'Hannover-HBF')
 ORDER BY route_id, sequences;
 
-/* Extracting train_id from the given route_id that comes from the s_name */
+/* QUERY 3: Extracts the train_id of the route_id that comes from the Station name. This tells us what train
+            passes through that station. This query retruns a table with route_id, train_id, and sequences 
+            for both trains.  */
 SELECT * FROM route WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = 'Bremen-Vegesack')
 UNION
 SELECT * FROM route WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = 'Hannover-HBF');
 
-/* Check to see if the train is regional*/
+/* QUERY 4: Returns the train table where the train_id is less than 300. 
+            Its a check to see if trains a regional since all RE trains have 
+            train_id's of less than 300. */
 SELECT * FROM train 
 WHERE train_id < 300; 
 
-/* Returns the common train station if one exists. Route IDs can be made dependent on user input.
-    allows us to know transfer points of the trains for the passengers. */
+/* QUERY 5: Returns the common train station if one exists. Returns the name of the common
+            train station.  */
 SELECT s_name FROM Route_path 
 WHERE route_id = 3301
 INTERSECT 
@@ -32,16 +37,19 @@ SELECT s_name FROM Route_path
 WHERE route_id = 3302 ;
  
  
-/*Gives the route_id with the station in descending order (round trip)   */
+/* QUERY 6: Returns the Routh_path table ordering them in terms of route_id and then sequences in
+            descedning order. Useful for round trips   */
 SELECT * FROM Route_path
 ORDER BY route_id, sequences DESC;
 
-/* Shows trains avaiblabe in the each station */
+/* QUERY 7: Shows trains avaiblabe in the each station. Returns a table with train_names and their 
+            corresponding station name */
 SELECT train_name, s_name
 FROM train, Route_path, route
 WHERE train.train_id = route.train_id AND route_path.route_id = route.route_id;
 
-/* Gives you the name and id of the station where the trains intersect  */
+/* QUERY 8: Returns a table with the list of possible station_id and station_names where 
+            transfers can be made. It tells us the transfer point. */
 SELECT * FROM Station 
 WHERE s_name = (SELECT s_name FROM Route_path 
                 WHERE route_id = 3301
@@ -50,15 +58,18 @@ WHERE s_name = (SELECT s_name FROM Route_path
                 WHERE route_id = 3302); 
                 
 
-/* Ian's query */
+/* QUERY 9: Returns a table with the information of the origin and destination 
+            of the said Passenger */
 SELECT departure, destination FROM passenger 
 WHERE p_name = "Irfan" ; 
 
-/* Ian's other query */ 
+/* QUERY 10: Ian's other query WORK IN PROGRESS NOT COMPLETE */ 
 SELECT train_name. p_name FROM train, passenger
 WHERE passenger.departure = route_path.s_name AND route.route_id = route_path.route_id;
 
-/* Query that will give us the direction of travel the passenger should take */
+/* QUERY 11: Returns a table with the station name and station_id of the origin and
+            destination of the passneger. Applies when the two station are on the 
+            same route. */
 SELECT * FROM Route_path 
 WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = "Bremen-HBF") 
 INTERSECT 
