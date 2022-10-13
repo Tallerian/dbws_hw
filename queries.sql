@@ -113,7 +113,11 @@ SELECT Regional.route_id, Route.train_id, Route.Total_stops, Regional.price
 FROM Regional
 INNER JOIN Route ON Regional.route_id=Route.route_id;
 
-/*JOIN QUERY 4: */ 
+/*JOIN QUERY 4: Tells us the train the passengers are on */ 
+SELECT p_name, train_name
+FROM Train, Route_path, Route
+INNER JOIN Passenger ON Passenger.destination = Route_path.s_name AND 
+Route_path.route_id = Route.route_id AND Train.train_id = Route.train_id; 
 
 
 /*GROUP QUERIES*/ 
@@ -125,3 +129,12 @@ SELECT train_name, MIN(price) AS "price"
 FROM long_dist
 GROUP BY price;
 
+
+/* AGGREGATE FUNCTIONS */
+/* AGGREGATE FUNCTION 1: */
+SELECT COUNT (p_id) AS "Number of Passengers" 
+FROM Passenger;
+
+/* AGGREGATE FUNCTION 2: */
+SELECT MIN(PRICE) as "Min Price", long_id, train_name, route_id 
+FROM Long_dist; 
