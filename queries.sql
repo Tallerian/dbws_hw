@@ -63,9 +63,12 @@ WHERE s_name = (SELECT s_name FROM Route_path
 SELECT departure, destination FROM passenger 
 WHERE p_name = "Irfan" ; 
 
-/* QUERY 10: Ian's other query WORK IN PROGRESS NOT COMPLETE */ 
-SELECT train_name. p_name FROM train, passenger
-WHERE passenger.departure = route_path.s_name AND route.route_id = route_path.route_id;
+/* QUERY 10: Tells a passenger if he can use 1 train for the entire trip. Showing the train name and passenger name */ 
+SELECT train_name, p_name FROM Train, Passenger, Route_path, Route
+WHERE Passenger.departure = Route_path.s_name AND Route_path.route_id = Route.route_id AND Route.train_id = Train.train_id
+INTERSECT
+SELECT train_name, p_name FROM Train, Passenger, Route_path, Route
+WHERE Passenger.destination = Route_path.s_name AND Route_path.route_id = Route.route_id AND Route.train_id = Train.train_id;
 
 /* QUERY 11: Returns a table with the station name and station_id of the origin and
             destination of the passneger. Applies when the two station are on the 
