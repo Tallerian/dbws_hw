@@ -57,3 +57,15 @@ WHERE p_name = "Irfan" ;
 /* Ian's other query */ 
 SELECT train_name. p_name FROM train, passenger
 WHERE passenger.departure = route_path.s_name AND route.route_id = route_path.route_id;
+
+/* Query that will give us the direction of travel the passenger should take */
+SELECT * FROM Route_path 
+WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = "Bremen-HBF") 
+INTERSECT 
+SELECT * FROM Route_path 
+WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = "Bremen-Vegesack")
+INTERSECT 
+SELECT * FROM Route_path 
+WHERE sequences = (SELECT sequences FROM Route_path WHERE s_name = "Bremen-HBF") OR
+	  sequences = (SELECT sequences FROM Route_path WHERE s_name = "Bremen-Vegesack")
+ORDER BY sequences;
