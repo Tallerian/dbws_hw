@@ -57,3 +57,17 @@ WHERE p_name = "Irfan" ;
 /* Ian's other query */ 
 SELECT train_name. p_name FROM train, passenger
 WHERE passenger.departure = route_path.s_name AND route.route_id = route_path.route_id;
+
+
+
+
+
+/* Shows all the regional train name and the price of them in descending order */
+SELECT train_name, MIN(price) AS "price"
+FROM regional
+GROUP BY price;
+
+/* Shows all the long distance train name and the price of them in descending order */
+SELECT train_name, MIN(price) AS "price"
+FROM long_dist
+GROUP BY price;
