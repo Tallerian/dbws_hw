@@ -88,22 +88,15 @@ ORDER BY sequences;
 SELECT * FROM route_path 
 WHERE route_id IN (SELECT route_id FROM route_path WHERE s_name = "Bremen-Vegesack") AND
       route_id IN (SELECT route_id FROM route_path WHERE s_name = "Bremen-HBF")
-INTERSECT 
-SELECT * FROM route_path
-WHERE sequences IN ( SELECT sequences FROM route_path WHERE s_name = "Bremen-Vegesack") 
-AND 
- sequences IN ( SELECT sequences FROM route_path WHERE s_name = "Bremen-HBF")
-ORDER BY sequences;
-
-/*
+      AND
       (
-      sequences >= (SELECT sequences FROM route_path WHERE s_name = "Bremen-Vegesack") AND
-	  sequences <= (SELECT sequences FROM route_path WHERE s_name = "Bremen-HBF")
+      sequences >= ANY (SELECT sequences FROM route_path WHERE s_name = "Bremen-Vegesack") AND
+	  sequences <= ANY (SELECT sequences FROM route_path WHERE s_name = "Bremen-HBF")
 	  OR 
-      sequences <= (SELECT sequences FROM route_path WHERE s_name = "Bremen-Vegesack") AND
-	  sequences >= (SELECT sequences FROM Route_path WHERE s_name = "Bremen-HBF")
+      sequences <= ANY (SELECT sequences FROM route_path WHERE s_name = "Bremen-Vegesack") AND
+	  sequences >= ANY (SELECT sequences FROM route_path WHERE s_name = "Bremen-HBF")
       )
-ORDER BY sequences; */
+ORDER BY sequences; 
 
 
 
