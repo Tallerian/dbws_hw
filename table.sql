@@ -1,27 +1,29 @@
-    
-    
     CREATE TABLE train (
         train_id INT, 
         train_name VARCHAR(20) UNIQUE, 
         origin VARCHAR,
-        destination VARCHAR(20), 
+        destination VARCHAR(20),    
         PRIMARY KEY(train_id)
     );
 
     CREATE TABLE regional(
         Reg_id INT,
         train_name VARCHAR(20),
+        route_id INT,
         price INT,
         PRIMARY KEY(Reg_id),
-        FOREIGN KEY(train_name) REFERENCES train(train_name)ON DELETE CASCADE
+        FOREIGN KEY(train_name) REFERENCES train(train_name)ON DELETE CASCADE,
+        FOREIGN KEY(route_id) REFERENCES route(route_id)
     );
 
     CREATE TABLE long_Dist(
         long_id INT,
         train_name VARCHAR(20),
+        route_id INT,
         price INT,
         PRIMARY KEY(long_id),
-        FOREIGN KEY(train_name) REFERENCES train(train_name)ON DELETE CASCADE
+        FOREIGN KEY(train_name) REFERENCES train(train_name)ON DELETE CASCADE,
+        FOREIGN KEY(route_id) REFERENCES route(route_id)
     );
 
     CREATE TABLE schedule (
@@ -100,4 +102,3 @@
         retire_disc INT,
         FOREIGN KEY(p_id) REFERENCES passenger(p_id)ON DELETE CASCADE
     );
-
