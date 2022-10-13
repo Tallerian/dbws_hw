@@ -2,7 +2,7 @@
     CREATE TABLE train (
         train_id INT, 
         train_name VARCHAR(20) UNIQUE, 
-        origin VARCHAR,
+        origin VARCHAR(20),
         destination VARCHAR(20),    
         PRIMARY KEY(train_id)
     );
