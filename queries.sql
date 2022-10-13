@@ -96,6 +96,29 @@ WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = "Bremen-Vegesac
 ORDER BY sequences;
 
 /* JOIN QUERY 1: Returns a Table with the train_id, train_name, origin, destination and total stops */
-SELECT Route.train_id, Train.train_name, Train.origin, Train.destination, Route.Total_stops
+SELECT Route.train_id, Route.route_id, Train.train_name, Train.origin, Train.destination, Route.Total_stops
 FROM Route
 INNER JOIN Train ON Route.train_id=Train.train_id;
+
+/* JOIN QUERY 2: */
+SELECT Long_Dist.route_id, Route.train_id, Route.Total_stops, Long_Dist.price
+FROM Long_Dist
+INNER JOIN Route ON Long_Dist.route_id=Route.route_id;
+
+/*JOIN QUERY 3: */ 
+SELECT Regional.route_id, Route.train_id, Route.Total_stops, Regional.price
+FROM Regional
+INNER JOIN Route ON Regional.route_id=Route.route_id;
+
+/*JOIN QUERY 4: */ 
+
+
+/*GROUP QUERIES*/ 
+SELECT train_name, MIN(price) AS "price"
+FROM regional
+GROUP BY price;
+
+SELECT train_name, MIN(price) AS "price"
+FROM long_dist
+GROUP BY price;
+
