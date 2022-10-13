@@ -28,7 +28,13 @@ SELECT * FROM route WHERE route_id IN (SELECT route_id FROM route_path WHERE s_n
 SELECT * FROM train 
 WHERE train_id < 300; 
 
-/* QUERY 5: Returns the common train station if one exists. Returns the name of the common
+/* QUERY 5: Returns the train table where the train_id is less than 300. 
+            Its a check to see if trains a regional since all RE trains have 
+            train_id's of less than 300. */
+SELECT * FROM train 
+WHERE train_id > 300; 
+
+/* QUERY 6: Returns the common train station if one exists. Returns the name of the common
             train station.  */
 SELECT s_name FROM route_path 
 WHERE route_id = 3301
@@ -37,18 +43,18 @@ SELECT s_name FROM route_path
 WHERE route_id = 3302 ;
  
  
-/* QUERY 6: Returns the Routh_path table ordering them in terms of route_id and then sequences in
+/* QUERY 7: Returns the Routh_path table ordering them in terms of route_id and then sequences in
             descedning order. Useful for round trips   */
 SELECT * FROM route_path
 ORDER BY route_id, sequences DESC;
 
-/* QUERY 7: Shows trains avaiblabe in the each station. Returns a table with train_names and their 
+/* QUERY 8: Shows trains avaiblabe in the each station. Returns a table with train_names and their 
             corresponding station name */
 SELECT train_name, s_name
 FROM train, route_path, route
 WHERE train.train_id = route.train_id AND route_path.route_id = route.route_id;
 
-/* QUERY 8: Returns a table with the list of possible station_id and station_names where 
+/* QUERY 9: Returns a table with the list of possible station_id and station_names where 
             transfers can be made. It tells us the transfer point. */
 SELECT * FROM station 
 WHERE s_name = (SELECT s_name FROM route_path 
@@ -58,19 +64,19 @@ WHERE s_name = (SELECT s_name FROM route_path
                 WHERE route_id = 3302); 
                 
 
-/* QUERY 9: Returns a table with the information of the origin and destination 
+/* QUERY 10: Returns a table with the information of the origin and destination 
             of the said passenger */
 SELECT departure, destination FROM passenger 
 WHERE p_name = "Irfan" ; 
 
-/* QUERY 10: Tells a passenger if he can use 1 train for the entire trip. Showing the train name and passenger name */ 
+/* QUERY 11: Tells a passenger if he can use 1 train for the entire trip. Showing the train name and passenger name */ 
 SELECT train_name, p_name FROM train, passenger, route_path, route
 WHERE passenger.departure = route_path.s_name AND route_path.route_id = route.route_id AND route.train_id = train.train_id
 INTERSECT
 SELECT train_name, p_name FROM train, passenger, route_path, route
 WHERE passenger.destination = route_path.s_name AND route_path.route_id = route.route_id AND route.train_id = train.train_id;
 
-/* QUERY 11: Returns a table with the station name and station_id of the origin and
+/* QUERY 12: Returns a table with the station name and station_id of the origin and
             destination of the passneger. Applies when the two station are on the 
             same route. */
 SELECT * FROM route_path 
@@ -84,7 +90,7 @@ WHERE sequences IN (SELECT sequences FROM route_path WHERE s_name = "Bremen-HBF"
 	  sequences IN (SELECT sequences FROM route_path WHERE s_name = "Bremen-Vegesack")
 ORDER BY sequences;
 
-/* QUERY 12: Returns a table with a list of all intermediary stops from station origin to destination*/
+/* QUERY 13: Returns a table with a list of all intermediary stops from station origin to destination*/
 SELECT * FROM route_path 
 WHERE route_id IN (SELECT route_id FROM route_path WHERE s_name = "Bremen-Vegesack") AND
       route_id IN (SELECT route_id FROM route_path WHERE s_name = "Bremen-HBF")
