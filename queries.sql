@@ -62,12 +62,12 @@ WHERE passenger.departure = route_path.s_name AND route.route_id = route_path.ro
 
 
 
-/* Shows all the regional train name and the price of them in descending order */
+/* Shows all the regional train name and the price of them in descending order using GROUP */
 SELECT train_name, MIN(price) AS "price"
 FROM regional
 GROUP BY price;
 
-/* Shows all the long distance train name and the price of them in descending order */
+/* Shows all the long distance train name and the price of them in descending order using GROUP */
 SELECT train_name, MIN(price) AS "price"
 FROM long_dist
 GROUP BY price;
