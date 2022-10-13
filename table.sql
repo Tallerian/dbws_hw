@@ -7,6 +7,15 @@
         PRIMARY KEY(train_id)
     );
     
+        DROP TABLE IF EXISTS route;
+    CREATE TABLE route(
+        train_id INT,
+        route_id INT UNIQUE,
+        Total_stops INT,
+        PRIMARY KEY(route_id),
+        FOREIGN KEY (train_id) REFERENCES train(train_id)
+    );
+    
     DROP TABLE IF EXISTS regional; 
     CREATE TABLE regional(
         Reg_id INT,
@@ -36,18 +45,9 @@
         departure_time TIME not NULL, 
         arrival_time TIME not NULL,
         PRIMARY KEY(Sched_id),
-        FOREIGN KEY (train_id) REFERENCES train
-    );
-    
-    DROP TABLE IF EXISTS route;
-    CREATE TABLE route(
-        train_id INT,
-        route_id INT UNIQUE,
-        Total_stops INT,
-        PRIMARY KEY(route_id),
         FOREIGN KEY (train_id) REFERENCES train(train_id)
     );
-
+    
     DROP TABLE IF EXISTS station;
     CREATE TABLE station (
         station_id INT, 
