@@ -80,3 +80,17 @@ SELECT * FROM Route_path
 WHERE sequences = (SELECT sequences FROM Route_path WHERE s_name = "Bremen-HBF") OR
 	  sequences = (SELECT sequences FROM Route_path WHERE s_name = "Bremen-Vegesack")
 ORDER BY sequences;
+
+/* QUERY 12: Returns a table with a list of all intermediary stops from station origin to destination*/
+SELECT * FROM Route_path 
+WHERE route_id = (SELECT route_id FROM Route_path WHERE s_name = "Bremen-Vegesack") AND
+      route_id = (SELECT route_id FROM Route_path WHERE s_name = "Bremen-HBF")
+      AND
+      (
+      sequences >= (SELECT sequences FROM Route_path WHERE s_name = "Bremen-Vegesack") AND
+	  sequences <= (SELECT sequences FROM Route_path WHERE s_name = "Bremen-HBF")
+	  OR 
+      sequences <= (SELECT sequences FROM Route_path WHERE s_name = "Bremen-Vegesack") AND
+	  sequences >= (SELECT sequences FROM Route_path WHERE s_name = "Bremen-HBF")
+      )
+ORDER BY sequences;
