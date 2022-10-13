@@ -115,11 +115,17 @@ SELECT regional.route_id, route.train_id, route.Total_stops, regional.price
 FROM regional
 INNER JOIN route ON regional.route_id=route.route_id;
 
-/*JOIN QUERY 4: Tells us the train the passengers are on */ 
+/*JOIN QUERY 4: Tells us the train the passenger Adults are on */ 
 SELECT p_name, train_name
-FROM train, route_path, route
-INNER JOIN passenger ON passenger.destination = route_path.s_name AND 
-route_path.route_id = route.route_id AND train.train_id = route.train_id; 
+FROM train, route_path, route, Adult
+INNER JOIN passenger ON Adult.p_id = passenger.p_id
+WHERE (route_path.route_id = route.route_id) AND (route_path.s_name = passenger.destination) AND (train.train_id = route.train_id); 
+
+/*JOIN QUERY 5: Tells us the train the passenger Student are on */ 
+SELECT p_name, train_name
+FROM train, route_path, route, student
+INNER JOIN passenger ON student.p_id = passenger.p_id
+WHERE (route_path.route_id = route.route_id) AND (route_path.s_name = passenger.destination) AND (train.train_id = route.train_id); 
 
 
 /*GROUP QUERIES*/ 
