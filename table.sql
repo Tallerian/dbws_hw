@@ -80,7 +80,7 @@ CREATE TABLE passenger (
     p_id INT, 
     p_name VARCHAR(20), 
     departure VARCHAR(20), 
-    destination INT, 
+    destination VARCHAR(20), 
     PRIMARY KEY(p_id)
 );
 
