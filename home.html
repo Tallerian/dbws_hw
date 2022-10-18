@@ -1,0 +1,75 @@
+
+
+<html lang = 'en'>
+    <head>
+        <title>
+            QuickRail HomePage
+        </title>
+        <link rel="stylesheet" href="common_style.css">
+    </head>
+    <body>
+        <div id = "Logo">
+			<div id = "Logo">
+				<img id = "backdrop" src="img/logo.png" alt="QRlogo" width = "15%" height = "10%">
+         </div>
+            <div id = "Miscellanous_text">
+                <h1> QuickRail</h1>
+                <p id = "Miscellanous_p">
+                    Searching Trains has never been this easy!
+                </p>
+                <div id = "login_part">
+                    <div>
+                        <input name="username" type="text" placeholder="Username">
+                    </div>
+                <div id="from_block">
+	        	FROM: <br/><br/><select id="origin_drop" onchange="updateSelect(this,'destination_drop')" name="origin" required>
+	        			  <option value="" selected="selected"></option>
+						  <option value="BremenHBF">Bremen-HBF</option>
+						  <option value="HamburgHBF">Hamburg-HBF</option>
+						  <option value="HannoverHBF">Hannover-HBF</option>
+						  <option value="BremenLesum">Bremen-Lesum</option>
+						  <option value="Bremen-Vegesack">Bremen-Vegesack</option>
+						</select>
+				</div>
+                <div id="to_block">
+	        	TO: <br/><br/><select id="destination_drop" onchange="updateSelect(this,'origin_drop')" name="destination" required>
+	        			  <option value="" selected="selected"></option>
+						  <option value="BremenHBF">Bremen-HBF</option>
+						  <option value="HamburgHBF">Hamburg-HBF</option>
+						  <option value="HannoverHBF">Hannover-HBF</option>
+						  <option value="BremenLesum">Bremen-Lesum</option>
+						  <option value="Bremen-Vegesack">Bremen-Vegesack</option>
+						</select>
+				</div>
+            <br/>
+				<div id="depart_block">
+	        	Depart Date:<br/><br/> <input id="depart_date" name="depart" type="text" placeholder="dd-mm-yyyy" required>
+	        	</div>
+	        	<br/>
+                <div id="passenger_block">
+	        	Passengers:<br/> <br/>
+	        			<select id="passenger_drop" name="passengernumber" required>
+	        			  <option value=""></option>
+						  <option value=1>1</option>
+						  <option value=2>2</option>
+						  <option value=3>3</option>
+						  <option value=4>4</option>
+						  <option value=5>5</option>
+						  <option value=6>6</option>
+						</select>
+	        	</div>
+                <br/>
+                <div id="trip_block">
+	        	Train Type: <br/><br/>
+	        		<select id="trip_drop" name="train_type" onchange="displayChange()" required>
+	        			  <option value=""></option>
+						  <option value="dist_train">Long Distance</option>
+						  <option value="reg_train">Regional</option>
+						</select>
+	        	</div>
+                <br/>
+                <button id="search" type="submit" >Find Routes</button>
+        		</form>
+                
+    </body>
+</html>

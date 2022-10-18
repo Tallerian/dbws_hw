@@ -1,0 +1,101 @@
+html, body{
+	background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-color: #87CEEB;
+    background-size: cover;  
+    background-position: center;  
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+    min-height: 100%;
+}
+
+#Logo {
+    position: fixed;
+    height: 3%;
+    width: 20%;
+    top: 0.5%;
+    left: 0.5;
+}
+
+#Logo > img {
+    position: fixed;
+    filter: brightness(400%);
+}
+
+#Miscellanous {
+    position: fixed;
+    top: 13%;
+    padding: 0.5%;
+    width: 100%;
+    height: 200%;
+    background-image: url("img/Backdrop.jpg");
+    background-color: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+    filter: brightness(30%);
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+#Miscellanous_text {
+    top: 10%;
+    padding: 0.5%;
+    width: 100%;
+    height: 200%;
+    text-align:center;
+    color: black;
+}
+
+#Miscellanous_p {
+    font-size: 30;
+}
+
+
+#from_block{
+	float: left;
+	text-align: left;
+	padding: 10px; 
+	margin-left: 30px;
+}
+
+#to_block{
+	float: left;
+	padding: 10px; 
+	text-align: left;
+	margin-left: 10px;
+}
+
+
+#passenger_block{
+	float:left;
+	padding: 10px; 
+	text-align: left;
+	margin-left: 50px;
+    
+}
+
+#train_block{
+	float:left;
+	padding: 10px; 
+	text-align: left;
+	margin-left: 50px;
+}
+
+#destination_drop{
+	width: 160px;
+	font-family: Verdana;
+}
+
+#search {
+	background-color:#2D319E;
+    border-radius: 28px;	
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Verdana, arial, times;
+}
