@@ -1,0 +1,158 @@
+
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+body
+{
+    position: relative;
+    background-image: linear-gradient(rgba(27, 27, 17, 0.64),rgba(27, 27, 17, 0.884)),url(img/Background_1.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Verdana';
+    font-style: normal;
+    font-weight: 800;
+    line-height: 18px;
+    width: 100%
+}
+
+.Topbar {
+    height: 12%;
+    width: 100%;
+    position: fixed;
+    top: 0%;
+    color: white;
+}
+
+.Topbar input{
+    padding: 5px;
+}
+
+.buttons:hover{
+    padding: 5px;
+    background-color: white;
+    color: gray;
+}
+
+#home_buttons {
+    position : absolute;
+    top: 45%;
+    left : 68%;	
+}
+
+#account_info_button {
+    position: absolute;
+    top : 45%;
+    left: 73%;
+}
+
+#settings_buttons {
+    position: absolute;
+    top : 45%;
+    left: 80%;
+}
+
+input.right{
+    float: right;
+    padding-top: 40px;
+}
+
+.booking-form-box
+{   
+    max-width: 400px;
+    border: 1px solid #ced4da;
+    margin: 10% auto 0;
+    position: absolute;
+    left: 30%;
+    top: 0%;
+    width: 70%;
+}
+.booking-form
+{
+    padding: 0 20px 20px;
+}
+.booking-form label
+{
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #fff !important;
+}
+
+.selection{
+    width: auto;
+}
+
+input::placeholder
+{
+    color: #fff !important;
+}
+.input-grp
+{
+    width: 151px;
+    display: inline-block;
+}
+.form-control
+{
+    font-size: 12px!important;
+    border-radius: 0!important;
+    color: #fff!important;
+    background: transparent!important;
+    box-shadow: none!important;
+}
+.select-date::-webkit-inner-spin-button,
+.select-date::-webkit-outer-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.select-date::-webkit-calender-picker-indicator
+{
+    background: transparent!important;
+}
+.custom-select
+{
+    color: #fff!important;
+    font-size: 12px!important;
+    border: 1px solid #ced4da!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+    background: transparent!important;
+}
+.custom-select option
+{
+    color: #333;
+}
+.flight
+{
+    width: 100%;
+    padding: 9px 0;
+    font-size: 12px;
+    border: 1px solid #ced4da!important;
+    background: transparent!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+}
+.flight:hover
+{
+   background: #fff!important; 
+    color: #000!important;
+    transition: 0.5s;
+}
+
+#endbar_fixed{
+    color: gray;
+    font-size: 12px;
+    text-align: center;
+    position: sticky;
+    top:100%;
+    padding-top: 10px;
+}
+
+#Content_Area{
+    color:white;
+    position:fixed;
+    top: 15%;
+    left: 15%;
+    height: 50%;
+    width: 50%;
+    padding: 10px;
+}

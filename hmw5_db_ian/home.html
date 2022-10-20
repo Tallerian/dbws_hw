@@ -1,0 +1,86 @@
+
+
+<html lang = 'en'>
+    <head>
+        <title>
+            QuickRail HomePage
+        </title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="common_style.css">
+    </head>
+	<style>
+	</style>
+
+
+    <body>
+
+        <div id = "Logo">
+			<img id = "backdrop" src="img/logo.png" alt="QRlogo" width = "25%" height = "22%">
+        </div>
+
+        <div class = "Topbar">
+            <button id = "home_buttons" class = "buttons">Home</button>
+            <button id = "account_info_button" class = "buttons"> <a href="./imprint.html">About Us</a></button>
+            <button id = "settings_buttons" class="buttons">Explore</button>
+		</div>
+
+		<div class="booking-form-box">
+			<div class="booking-form">
+                 
+                <label>Name:</label>
+                <input type="text" class="form-control" placeholder="First Name Last Name">
+
+                <label>FROM:</label>
+                <div class="selection">
+                    <select id="origin_drop" onchange="updateSelect(this,'destination_drop')" name="origin" required>
+                        <option value="Select location" selected="selected"></option>
+                        <option value="BremenHBF">Bremen-HBF</option>
+                        <option value="HamburgHBF">Hamburg-HBF</option>
+                        <option value="HannoverHBF">Hannover-HBF</option>
+                        <option value="BremenLesum">Bremen-Lesum</option>
+                        <option value="Bremen-Vegesack">Bremen-Vegesack</option>
+                    </select>
+                </div>
+                <div class="input group">
+                <label>To:</label>
+                <div class="selection"></div>
+                    <select id="origin_drop" onchange="updateSelect(this,'destination_drop')" name="origin" required>
+                        <option value="" selected="selected"></option>
+                        <option value="BremenHBF">Bremen-HBF</option>
+                        <option value="HamburgHBF">Hamburg-HBF</option>
+                        <option value="HannoverHBF">Hannover-HBF</option>
+                        <option value="BremenLesum">Bremen-Lesum</option>
+                        <option value="Bremen-Vegesack">Bremen-Vegesack</option>
+                    </select>
+                </div>
+
+                <div class="input-grp">
+                    <label for="">Departing</label>
+                    <input type="date" class="form-control select-date">p
+                </div>
+
+                <div class="input group">
+                    <label>Type Train:</label>
+                    <div class="selection"></div>
+                        <select id="trip_drop" name="train_type" onchange="displayChange()" required>
+                            <option value=""></option>
+                            <option value="dist_train">Long Distance</option>
+                            <option value="reg_train">Regional</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="endbar_fixed">
+                <p>
+                    This website is student lab work and does not necessarily reflect Jacobs University Bremen opinions. Jacobs University Bremen does not endorse this site, nor is it checked by Jacobs University Bremen regularly, nor is it part of the official Jacobs University Bremen web presence.
+                    For each external link existing on this website, we initially have checked that the target page does not contain contents which is illegal wrt. German jurisdiction. However, as we have no in- fluence on such contents, this may change without our notice. Therefore we deny any responsib- ility for the websites referenced through our external links from here.
+                    No information conflicting with GDPR is stored in the server.
+                </p>
+            </div>
+
+            </div>
+        </div>
+                
+    </body>
+</html>
