@@ -1,0 +1,227 @@
+
+body{
+  background-color: #d5d5d5;
+	font-family: 'Verdana';
+	background-size: cover;
+  background-position: center;
+  }
+
+.main-menu {
+  text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Verdana';
+}
+
+header{
+  height: 90px;
+  background: #2b2e3e;
+}
+
+.inner-width{
+  max-width: 1000px;
+  padding: 0 10px;
+  margin: auto;
+}
+
+.navigation-menu{
+  float: right;
+  display: flex;
+  align-items: center;
+  min-height: 90px;
+}
+
+.navigation-menu a{
+  margin-left: 10px;
+  color: #ddd;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  transition: .3s linear;
+}
+
+a img{
+  padding-top: 22px;
+}
+
+
+.navigation-menu a:hover{
+  background: #1b2037;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.navigation-menu i{
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.home{
+  color: #fff;
+}
+
+a.aj_btn {
+  background: #273b91;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+a.aj_btn:hover{
+  background: #fff;
+  color: #1b2037;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.menu-toggle-btn{
+  float: right;
+  height: 90px;
+  line-height: 90px !important;
+  color: #fff;
+  font-size: 26px;
+  display: none !important;
+  cursor: pointer;
+}
+
+ul {
+	list-style:none;
+}
+
+#registration-form {
+  font-family:'Verdana';
+  width: 400px;
+  min-width:250px;
+  margin: 20px auto;
+  position: relative;
+}
+
+#registration-form .fieldset {
+  background-color:#d5d5d5;
+
+  border-radius: 3px;
+  
+}
+
+  #registration-form legend {
+  text-align: center;
+  background: #364351;
+  width: 100%;
+  padding: 30px 0;
+  border-radius: 3px 3px 0 0;
+  color: white;
+font-size:2em;
+}
+
+.fieldset form{
+  border:1px solid #2f2f2f;
+  margin:0 auto;
+  display:block;
+  width:100%;
+  padding:30px 20px;
+  box-sizing:border-box;
+  border-radius:0 0 3px 3px;
+}
+.placeholder #registration-form label {
+  display: none;
+}
+  .no-placeholder #registration-form label{
+margin-left:5px;
+  position:relative;
+  display:block;
+  color:grey;
+  text-shadow:0 1px white;
+  font-weight:bold;
+}
+
+#registration-form input[type=text] {
+  padding: 15px 20px;
+  width: 80%;
+  border-radius: 1px;
+  margin:5px auto;
+  background-color:#f7f7f7;
+  border: 1px solid silver;
+}
+
+#registration-form input[type=time] {
+  padding: 15px 20px;
+  border-radius: 1px;
+  width: 80%;
+  margin:2px auto;
+  background-color:#f7f7f7;
+  border: 1px solid silver;
+}
+
+#registration-form .custom-select {
+  width: 90%;
+  border-radius: 1px;
+  margin:5px;
+  background-color: none;
+  border: 1px solid silver;
+}
+
+.no-placeholder #registration-form input[type=text] {
+  padding: 10px 20px;
+}
+
+#registration-form input[type=text]:active, .placeholder #registration-form input[type=text]:focus {
+  outline: none;
+  border-color: silver;
+  background-color:white;
+}
+
+#registration-form input[type=submit] {
+  font-family:'Open Sans Condensed', sans-serif;
+  text-transform:uppercase;
+  outline:none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #5C8CA7;
+  padding: 10px;
+  color: white;
+  border: 1px solid #3498db;
+  border-radius: 3px;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 5px;
+  cursor: pointer;
+  position:relative;
+  top:0;
+}
+
+#registration-form input[type=submit]:hover {
+  background-color: #2980b9;
+}
+
+#registration-form input[type=submit]:active {
+background:#5C8CA7;
+}
+
+#registration-form select{
+  width:100%;
+  padding:5px;
+}
+
+.disclaimer{
+  background-color: #232636;
+  color: white;
+  font-family: 'Verdana';
+}
+
+.disclaimer p{
+  opacity: 0.5;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
